@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="js/style.js">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -48,30 +49,15 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
   
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/img/tacticalpen1.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/img/tacticalpen2.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/img/tacticalpen3.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
+<div class="">
 
-    <div class="w3-half">
-      <img src="/img/tacticalpen4.JPG" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="/img/tacticalpen5.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="/img/tacticalpen6.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-    </div>
-  </div>
+<img class="mySlides" src="img/tacticalpen1.jpg">
+<img class="mySlides" src="img/tacticalpen2.jpg">
+<img class="mySlides" src="img/tacticalpen3.jpg">
+<img class="mySlides" src="img/tacticalpen4.JPG">
+<img class="mySlides" src="img/tacticalpen5.png">
 
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
+</div>
   <!-- Services -->
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
@@ -155,6 +141,22 @@ function onClick(element) {
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
 }
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+    
 </script>
 
 </body>
